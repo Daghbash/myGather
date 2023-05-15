@@ -1,30 +1,34 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ route('pages.index') }}">Gather</a>
+            <a class="navbar-brand" href="{{ route('pages.index') }}">
+                <h1 class="text-secondary">Gather</h1>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('pages.index') }}">Home</a>
+                    <li class="nav-item mx-3">
+{{--                        <a class="nav-link" href="{{ route('lab.math') }}">MathLab</a>--}}
+                        <button id="mathLab" class="btn btn-secondary headerButton">MathLab</button>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('pages.about') }}">About</a>
+                    <li class="nav-item mx-3">
+{{--                        <a class="nav-link" href="{{ route('lab.physics') }}">PhysicsLab</a>--}}
+                        <button id="physicsLab" class="btn btn-secondary headerButton">PhysicsLab</button>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('lab.math') }}">MathLab</a>
+                    <li class="nav-item mx-3">
+{{--                        <a class="nav-link" href="{{ route('lab.psychology') }}">PsychologyLab</a>--}}
+                        <button id="psychologyLab" class="btn btn-secondary headerButton">PsychologyLab</button>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('lab.physics') }}">PhysicsLab</a>
+                    <li class="nav-item mx-3">
+{{--                        <a class="nav-link" href="{{ route('lab.biologyLab') }}">BiologyLab</a>--}}
+                        <button id="biologyLab" class="btn btn-secondary headerButton">BiologyLab</button>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('lab.psychology') }}">PsychologyLab</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('lab.geography') }}">BiologyLab</a>
+                    <li class="nav-item mx-3">
+{{--                        <a class="nav-link" href="{{ route('lab.geography') }}">GeographyLab</a>--}}
+                        <button id="geographyLab" class="btn btn-secondary headerButton">GeographyLab</button>
                     </li>
                 </ul>
             </div>
@@ -35,3 +39,8 @@
         </div>
     </nav>
 </header>
+
+@push('js')
+    <script src="{{ asset('js/main.js') }}"></script>
+@endpush
+

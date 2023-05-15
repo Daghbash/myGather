@@ -2,12 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
+use Laravolt\Avatar\Facade as Avatar;
 
 class MathLabController extends Controller
 {
-    public function index(): View
+    public function index(): JsonResponse
     {
-        return view('labs/math');
+
+        $avatar = Avatar::create('John Doe')->toBase64();
+
+        $data = [
+            'message' => 'Hello Math lab, JSON response!',
+            'avatar'  => $avatar,
+        ];
+
+
+        return response()->json($data);
     }
 }

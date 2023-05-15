@@ -59,9 +59,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
         return view('home');
     })->name('pages.index');
-    Route::get('/about', function () {
-        return view('about');
-    })->name('pages.about');
 
     Route::group(['prefix' => '/lab', 'as' => 'lab.'], function () {
         Route::get('/math', [MathLabController::class, 'index'])->name('math');

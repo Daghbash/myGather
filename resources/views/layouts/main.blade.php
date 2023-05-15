@@ -6,20 +6,21 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <title>Gather</title>
-
     @include('partials.styles')
 </head>
 <body>
 
 @include('partials.header')
 
-<main class="container mt-5">
+<main id="container">
     @yield('content')
 </main>
 
 @include('partials.footer')
 
 @include('partials.scripts')
+
+@stack('js')
 
 </body>
 </html>

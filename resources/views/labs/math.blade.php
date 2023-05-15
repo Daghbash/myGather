@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
-    This is math lab
+    <div id="contentContainer">
+        This is math lab
+    </div>
 @endsection
+
+<script src="{{ asset('js/mathLab.js') }}"></script>
