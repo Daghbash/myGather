@@ -3,17 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class PsychologyLabController extends Controller
 {
-    public function index(): JsonResponse
+    public function index(): View
     {
         $data = [
             'message' => 'Hello Psychology lab, JSON response!',
         ];
 
-        return response()->json($data);
+        return view('labs.math', compact('data'));
     }
 }

@@ -8,12 +8,12 @@ use Illuminate\Http\Request;
 
 class GeographyLabController extends Controller
 {
-    public function index(): JsonResponse
+    public function index(): View
     {
         $data = [
-            'message' => 'Hello geography , JSON response!',
+            'message' => 'Hello Geography lab, JSON response!',
         ];
 
-        return response()->json($data);
+        return view('labs.math', compact('data'));
     }
 }

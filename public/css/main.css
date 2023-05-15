@@ -1,3 +1,25 @@
+html, body {
+    height:100%;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 160%;
+    position: relative;
+}
+
+.img-block img {
+    height: 100%;
+    object-fit: contain;
+}
+.img-block{
+    flex: 1;
+}
+
 .button-style {
 
+}
+
+#mathLabContent, #physicsLabContent, #psychologyLabContent, #biologyLabContent, #geographyLabContent {
+    position: absolute;
+    top: 83px;
+    left: 83px;
 }

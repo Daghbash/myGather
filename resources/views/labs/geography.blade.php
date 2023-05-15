@@ -1,5 +1,5 @@
 @extends('layouts.main')
 
 @section('content')
-    This is geography lab
+    {{ $data['message'] }}
 @endsection

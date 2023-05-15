@@ -7,12 +7,12 @@ use Illuminate\Http\JsonResponse;
 
 class PhysicsLabController extends Controller
 {
-    public function index(): JsonResponse
+    public function index(): View
     {
         $data = [
-            'message' => 'Hello physics lab, JSON response!',
+            'message' => 'Hello Physics lab, JSON response!',
         ];
 
-        return response()->json($data);
+        return view('labs.math', compact('data'));
     }
 }

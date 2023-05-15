@@ -12,11 +12,11 @@
 
 @include('partials.header')
 
-<main id="container">
+<main id="container" class="container h-100">
     @yield('content')
 </main>
 
-@include('partials.footer')
+{{--@include('partials.footer')--}}
 
 @include('partials.scripts')
 

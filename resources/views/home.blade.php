@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="container">
+    <div class="h-100">
 
         <div class="selectLab">
             <div class="my-3">
@@ -33,27 +33,59 @@
             </div>
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                       aria-controls="home" aria-selected="true">Home</a>
+                    <a class="nav-link active" id="body-tab" data-toggle="tab" href="#body" role="tab"
+                       aria-controls="home" aria-selected="true">Body</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                       aria-controls="profile" aria-selected="false">Profile</a>
+                    <a class="nav-link" id="hat-tab" data-toggle="tab" href="#hat" role="tab"
+                       aria-controls="profile" aria-selected="false">Hat</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
-                       aria-controls="contact" aria-selected="false">Contact</a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"--}}
+{{--                       aria-controls="contact" aria-selected="false">Contact</a>--}}
+{{--                </li>--}}
             </ul>
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">nav1</div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">nav2</div>
-                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">nav3</div>
+
+            <div class="tab-content" id="myTabContent" >
+                <div class="tab-pane fade show active h-100" id="body" role="tabpanel" aria-labelledby="body-tab">
+
+                    <div class="d-flex" style="height: 300px">
+                        <div class="img-block">
+                            <img
+                                src="{{ asset('/images/body/body1.png') }}"
+                                class="card-img-top" alt="Card image cap"
+                            >
+                        </div>
+                        <div class="img-block">
+                            <img
+                                src="{{ asset('/images/body/body2.png') }}"
+                                class="card-img-top"
+                                alt="Card image cap"
+                            >
+                        </div>
+                        <div class="img-block">
+                            <img
+                                src="{{ asset('/images/body/body3.png') }}"
+                                class="card-img-top"
+                                alt="Card image cap"
+                            >
+                        </div>
+                        <div class="img-block">
+                            <img
+                                src="{{ asset('/images/body/body4.png') }}"
+                                class="card-img-top"
+                                alt="Card image cap"
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="hat" role="tabpanel" aria-labelledby="hat-tab">hat</div>
+{{--                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">nav3</div>--}}
             </div>
         </div>
 
         <div class="my-3">
-            <button class="btn btn-outline-secondary">Go to lab</button>
+            <button type="button" class="btn btn-outline-secondary">Go to lab</button>
         </div>
     </div>
 

@@ -1,9 +1,8 @@
-@extends('layouts.main')
+{{--@extends('layouts.main')--}}
 
-@section('content')
+{{--@section('content')--}}
     <div id="contentContainer">
-        This is math lab
+        {{ $data['message'] }}
     </div>
-@endsection
 
 <script src="{{ asset('js/mathLab.js') }}"></script>
