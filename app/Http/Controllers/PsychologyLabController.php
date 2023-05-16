@@ -13,6 +13,6 @@ class PsychologyLabController extends Controller
             'message' => 'Hello Psychology lab, JSON response!',
         ];
 
-        return view('labs.math', compact('data'));
+        return view('labs.psychology', compact('data'));
     }
 }

@@ -13,6 +13,6 @@ class PhysicsLabController extends Controller
             'message' => 'Hello Physics lab, JSON response!',
         ];
 
-        return view('labs.math', compact('data'));
+        return view('labs.physics', compact('data'));
     }
 }

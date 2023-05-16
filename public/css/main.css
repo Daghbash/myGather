@@ -10,16 +10,70 @@ html, body {
     height: 100%;
     object-fit: contain;
 }
-.img-block{
+.img-block {
     flex: 1;
+    margin: 20px;
+    border: 1px solid #6c757d;
+    position: relative;
+    display: inline-block;
 }
-
-.button-style {
-
+.img-block:hover {
+    background-color: #6c757d;
+}
+.block-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.img-block:hover .block-button {
+    opacity: 1;
+}
+.selected-button {
+    display: none;
+}
+.block-button button, .selected-button {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.block-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.block-button button {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
 #mathLabContent, #physicsLabContent, #psychologyLabContent, #biologyLabContent, #geographyLabContent {
-    position: absolute;
+    /*position: absolute;*/
     top: 83px;
     left: 83px;
+}
+#mathLabContent img, #physicsLabContent img, #psychologyLabContent img, #biologyLabContent img, #geographyLabContent img {
+    position: absolute;
+}
+
+.exitDoor {
+    height: 100px;
+    width: 100px;
+    background-color: yellow;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }

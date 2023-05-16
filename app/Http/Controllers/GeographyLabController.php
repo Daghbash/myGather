@@ -14,6 +14,6 @@ class GeographyLabController extends Controller
             'message' => 'Hello Geography lab, JSON response!',
         ];
 
-        return view('labs.math', compact('data'));
+        return view('labs.geography', compact('data'));
     }
 }
