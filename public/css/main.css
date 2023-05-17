@@ -58,22 +58,35 @@ html, body {
 }
 
 #mathLabContent, #physicsLabContent, #psychologyLabContent, #biologyLabContent, #geographyLabContent {
-    /*position: absolute;*/
-    top: 83px;
-    left: 83px;
+    position: relative;
+    /*top: 83px;*/
+    /*left: 83px;*/
 }
 #mathLabContent img, #physicsLabContent img, #psychologyLabContent img, #biologyLabContent img, #geographyLabContent img {
     position: absolute;
 }
 
-.exitDoor {
+.mathLabDoor, .psychologyLabDoor, .biologyLabDoor {
+    text-align: center;
     height: 100px;
     width: 100px;
-    background-color: yellow;
     position: absolute;
-    bottom: 0;
-    right: 0;
     justify-content: center;
     display: flex;
     align-items: center;
+}
+.mathLabDoor {
+    background-color: yellow;
+    bottom: 0;
+    right: 0;
+}
+.psychologyLabDoor {
+    background-color: green;
+    bottom: 50%;
+    right: 50%;
+}
+.biologyLabDoor {
+    background-color: red;
+    bottom: 50%;
+    right: 0;
 }

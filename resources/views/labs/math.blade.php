@@ -1,18 +1,25 @@
 <div id="contentContainer">
     {{ $data['message'] }}
-    <div style="width: 1000px; height: 600px;" class="border mathLab">
+    <div style="height: 600px;" class="border mathLab position-relative" id="lab">
         <div id="mathLabContent">
             <img
                 src="{{ asset('/images/body/body2.png') }}"
                 class="card-img-top"
+                id="person"
                 alt="Card image cap"
                 style="height: 100px; width: 100px;"
             >
         </div>
 
-        <div class="position-relative h-100">
-            <div class="exitDoor">
-                Door
+        <div class="position-relative h-100" id="doors">
+            <div class="mathLabDoor" lab="mathLab">
+                {{ __('Physics Lab Door') }}
+            </div>
+            <div class="psychologyLabDoor" lab="psychologyLab">
+                {{ __('Psychology Lab Door') }}
+            </div>
+            <div class="biologyLabDoor" lab="biologyLab">
+                {{ __('Biology Lab Door') }}
             </div>
         </div>
     </div>

@@ -1,93 +1,31 @@
 $(document).ready(function() {
 
-    $('#mathLab').on('click', function () {
+    let labUrls = {
+        mathLab: 'lab/math',
+        physicsLab: '/lab/physics',
+        psychologyLab: '/lab/psychology',
+        biologyLab: '/lab/biology',
+        geographyLab: '/lab/geography',
+    }
+
+    $(".headerButton").on('click', function () {
+        let labId = $(this).attr('id');
+        let labUrl = labUrls[labId];
         removeClass();
-        $.ajax({
-            url: '/lab/math',
-            type: 'GET',
-            success: function(response) {
-                $('#mathLab').addClass('active');
-                $('#container').html('<div>' + response + '</div>');
 
-                let movingIcon = $("#mathLabContent").find('img');
-                moveIcon(movingIcon);
-            },
-            error: function() {
-                alert('An error occurred while fetching the content.');
-            }
-        });
-    });
+            $.ajax({
+                url: labUrl,
+                type: 'GET',
+                success: function(response) {
+                    $(this).addClass('active');
+                    $('#container').html('<div>' + response + '</div>');
 
-    $('#physicsLab').on('click', function() {
-        removeClass();
-        $.ajax({
-            url: '/lab/physics',
-            type: 'GET',
-            success: function(response) {
-                $('#physicsLab').addClass('active');
-                $('#container').html('<div>' + response + '</div>');
-
-                let movingIcon = $("#physicsLabContent");
-                moveIcon(movingIcon);
-            },
-            error: function() {
-                alert('An error occurred while fetching the content.');
-            }
-        });
-    });
-
-    $('#psychologyLab').on('click', function() {
-        removeClass();
-        $.ajax({
-            url: '/lab/psychology',
-            type: 'GET',
-            success: function(response) {
-                $('#psychologyLab').addClass('active');
-                $('#container').html('<div>' + response + '</div>');
-
-                let movingIcon = $("#psychologyLabContent");
-                moveIcon(movingIcon);
-            },
-            error: function() {
-                alert('An error occurred while fetching the content.');
-            }
-        });
-    });
-
-    $('#biologyLab').on('click', function() {
-        removeClass();
-        $.ajax({
-            url: '/lab/biology',
-            type: 'GET',
-            success: function(response) {
-                $('#biologyLab').addClass('active');
-                $('#container').html('<div id="biologyLabContent">' + response + '</div>');
-
-                let movingIcon = $("#biologyLabContent");
-                moveIcon(movingIcon);
-            },
-            error: function() {
-                alert('An error occurred while fetching the content.');
-            }
-        });
-    });
-
-    $('#geographyLab').on('click', function() {
-        removeClass();
-        $.ajax({
-            url: '/lab/geography',  // Replace with your route URL or endpoint
-            type: 'GET',
-            success: function(response) {
-                $('#geographyLab').addClass('active');
-                $('#container').html('<div id="geographyLabContent">' + response + '</div>');
-
-                let movingIcon = $("#geographyLabContent");
-                moveIcon(movingIcon);
-            },
-            error: function() {
-                alert('An error occurred while fetching the content.');
-            }
-        });
+                    let movingIcon = $("#" + labId + "Content").find('img');
+                },
+                error: function() {
+                    alert('An error occurred while fetching the content.');
+                }
+            });
     });
 
     function removeClass ()
@@ -96,76 +34,92 @@ $(document).ready(function() {
             element.classList.remove('active');
         });
     }
+    window.isGameReady = true;
 
-    function moveIcon(movingIcon) {
-        $(document).keydown(function(e) {
+    function moveIcon(e) {
+        if (window.isGameReady) {
+            let movingIcon = $('#person')
+            let lab = $('#lab');
             let position = movingIcon.position();
-            let iconHeight = movingIcon.height();
-            let iconWidth = movingIcon.width();
-            let lab = movingIcon.closest('.mathLab');
-            let labTop = lab.position().top;
-            let labLeft = lab.position().left;
-            let labRight = lab.width() + labLeft;
-            let labBottom = lab.height() + labTop;
 
             switch (e.which) {
-                case 37:
-                    if (position.left >= labLeft) {
+                case 37: //left arrow key
+                    if (position.left >= 0)    {
                         movingIcon.finish().animate({
                             left: '-=10',
-                        }); //left arrow key
+                        });
                     }
                     break;
-                case 38:
-                    if (position.top - 10 >= labTop) {
+                case 38: //up arrow key
+                    if (position.top - 10 >= 0) {
                         movingIcon.finish().animate({
                             top: '-=10'
-                        }); //up arrow key
+                        });
                     }
                     break;
-                case 39:
-                    if (position.left + iconWidth < labRight) {
+                case 39: //right arrow key
+                    if (position.left + movingIcon.width() < lab.width()) {
                         movingIcon.finish().animate({
                             left: '+=10'
-                        }); //right arrow key
+                        });
                     }
                     break;
-                case 40:
-                    if (position.top + iconHeight < labBottom) {
+                case 40: //bottom arrow key
+                    if (position.top + movingIcon.height() + 10 < lab.height()) {
                         movingIcon.finish().animate({
                             top: '+=10'
-                        }); //bottom arrow key
+                        });
                     }
                     break;
             }
+            $.map($('#doors div'), function( val ) {
+                let labId = $(val).attr('lab');
+                console.log(position, $(val).position())
+                // if (position.left + movingIcon.width() >= $(val).position().left &&
+                //     ) {
+                //     // console.log($(val))
+                // }
 
-            let exitDoor = $('.exitDoor');
+                // Do something
+            });
 
-            if (position.left - movingIcon.width() >= exitDoor.position().left &&
-                position.top - movingIcon.height() >= exitDoor.position().top) {
+            let mathLabDoor = $('.mathLabDoor');
+
+            if (position.left - movingIcon.width() >= mathLabDoor.position().left &&
+                position.top - movingIcon.height() >= mathLabDoor.position().top) {
+                window.isGameReady = false;
                 $.ajax({
                     url: '/lab/physics',  // Replace with your route URL or endpoint
                     type: 'GET',
                     success: function(response) {
                         $('#geographyLab').addClass('active');
                         $('#container').html('<div>' + response + '</div>');
+
+                        let movingIcon = $("#physicsLabContent img");
+                        window.isGameReady = true;
                     },
                     error: function() {
                         alert('An error occurred while fetching the content.');
                     }
                 });
             }
-        })
+        }
+
     }
 
-    //heto
-    $('.select-avatar-button').click(function() {
-        let allSameClasses = $('.select-avatar-button').not($(this));
-        let selectedImage = $(this).parent().siblings('img');
-        // console.log(selectedImage[0])
-
-        allSameClasses.unbind("click");
-        $(this).addClass('d-none');
-        ($(this)).parent().find('.selected-button').css('display', 'block')
+    $(document).keydown(function(e) {
+        moveIcon(e)
     })
+
+    //heto
+    // $('.select-avatar-button').click(function() {
+    //     let allSameClasses = $('.select-avatar-button').not($(this));
+    //     let selectedImage = $(this).parent().siblings('img');
+    //     // console.log(selectedImage[0])
+    //
+    //     allSameClasses.unbind("click");
+    //     $(this).addClass('d-none');
+    //     ($(this)).parent().find('.selected-button').css('display', 'block')
+    // })
 })
+
