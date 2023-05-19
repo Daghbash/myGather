@@ -18,9 +18,7 @@ $(document).ready(function() {
                 type: 'GET',
                 success: function(response) {
                     $(this).addClass('active');
-                    $('#container').html('<div>' + response + '</div>');
-
-                    let movingIcon = $("#" + labId + "Content").find('img');
+                    $('#container').html(response);
                 },
                 error: function() {
                     alert('An error occurred while fetching the content.');

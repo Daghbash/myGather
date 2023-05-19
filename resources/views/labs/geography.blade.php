@@ -1,5 +1,10 @@
-@extends('layouts.main')
-
-@section('content')
+<div id="contentContainer">
     {{ $data['message'] }}
-@endsection
+
+    <div class="canvasContainer">
+        <canvas id="canvas"></canvas>
+    </div>
+
+</div>
+
+<script src="{{ asset('js/geography.js') }}"></script>
