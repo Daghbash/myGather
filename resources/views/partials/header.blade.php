@@ -1,4 +1,4 @@
-<header>
+<header id="header">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ route('pages.index') }}">
@@ -11,23 +11,18 @@
             <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item mx-3">
-{{--                        <a class="nav-link" href="{{ route('lab.math') }}">MathLab</a>--}}
                         <button id="mathLab" class="btn btn-secondary headerButton">MathLab</button>
                     </li>
                     <li class="nav-item mx-3">
-{{--                        <a class="nav-link" href="{{ route('lab.physics') }}">PhysicsLab</a>--}}
                         <button id="physicsLab" class="btn btn-secondary headerButton">PhysicsLab</button>
                     </li>
                     <li class="nav-item mx-3">
-{{--                        <a class="nav-link" href="{{ route('lab.psychology') }}">PsychologyLab</a>--}}
                         <button id="psychologyLab" class="btn btn-secondary headerButton">PsychologyLab</button>
                     </li>
                     <li class="nav-item mx-3">
-{{--                        <a class="nav-link" href="{{ route('lab.biologyLab') }}">BiologyLab</a>--}}
                         <button id="biologyLab" class="btn btn-secondary headerButton">BiologyLab</button>
                     </li>
                     <li class="nav-item mx-3">
-{{--                        <a class="nav-link" href="{{ route('lab.geography') }}">GeographyLab</a>--}}
                         <button id="geographyLab" class="btn btn-secondary headerButton">GeographyLab</button>
                     </li>
                 </ul>

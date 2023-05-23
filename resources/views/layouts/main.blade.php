@@ -13,7 +13,7 @@
 
 @include('partials.header')
 
-<main id="container" class="container">
+<main id="container" class="">
     @yield('content')
 </main>
 

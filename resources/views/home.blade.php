@@ -37,14 +37,6 @@
                         <a class="nav-link active" id="body-tab" data-toggle="tab" href="#body" role="tab"
                            aria-controls="home" aria-selected="true">Body</a>
                     </li>
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link" id="hat-tab" data-toggle="tab" href="#hat" role="tab"--}}
-{{--                           aria-controls="profile" aria-selected="false">Hat</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"--}}
-{{--                        aria-controls="contact" aria-selected="false">Contact</a>--}}
-{{--                    </li>--}}
                 </ul>
 
                 <div class="tab-content" id="myTabContent" >
@@ -112,8 +104,6 @@
                             </div>
                         </div>
                     </div>
-{{--                    <div class="tab-pane fade" id="hat" role="tabpanel" aria-labelledby="hat-tab">hat</div>--}}
-{{--                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">nav3</div>--}}
                 </div>
             </div>
 
@@ -125,13 +115,3 @@
     </div>
 
 @endsection
-
-{{--@push('js')--}}
-{{--<script>--}}
-{{--    $(document).ready(function() {--}}
-{{--        console.log('jQuery version:', $.fn.jquery);--}}
-{{--        console.log('jQuery is working!');--}}
-{{--        // Test jQuery functionality here--}}
-{{--    });--}}
-{{--</script>--}}
-{{--@endpush--}}
