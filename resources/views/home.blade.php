@@ -1,117 +1,13 @@
 @extends('layouts.main')
 
 @section('content')
+    <div class="text-center">
+        <h3 class="text-secondary">Hi {{\Illuminate\Support\Facades\Auth::user()->name}}, this is gather main page.</h3>
+        <h5>Please select lab door</h5>
+    </div>
+
     <div class="h-100">
-
-        <form action="">
-            <div class="selectLab">
-                <div class="my-3">
-                    Hi you are in the Gather, Please select lab
-                </div>
-                <select class="form-select" aria-label="Disabled select example">
-                    <option selected>Select lab...</option>
-                    <option value="math">
-                        MathLab
-                    </option>
-                    <option value="physics">
-                        PhysicsLab
-                    </option>
-                    <option value="biology">
-                        BiologyLab
-                    </option>
-                    <option value="psychology">
-                        PsychologyLab
-                    </option>
-                    <option value="geography">
-                        GeographyLab
-                    </option>
-                </select>
-            </div>
-
-            <div class="createAvatar">
-                <div class="my-3">
-                    Please create your Avatar
-                </div>
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="body-tab" data-toggle="tab" href="#body" role="tab"
-                           aria-controls="home" aria-selected="true">Body</a>
-                    </li>
-                </ul>
-
-                <div class="tab-content" id="myTabContent" >
-                    <div class="tab-pane fade show active h-100" id="body" role="tabpanel" aria-labelledby="body-tab">
-
-                        <div class="d-flex" style="height: 300px">
-                            <div class="img-block">
-                                <img
-                                    src="{{ asset('/images/body/body1.png') }}"
-                                    class="card-img-top" alt="Card image cap"
-                                >
-                                <div class="block-button">
-                                    <button type="button" class="select-avatar-button">
-                                        Select Avatar
-                                    </button>
-                                    <button type="button" class="selected-button">
-                                        Selected Avatar
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="img-block">
-                                <img
-                                    src="{{ asset('/images/body/body2.png') }}"
-                                    class="card-img-top"
-                                    alt="Card image cap"
-                                >
-                                <div class="block-button">
-                                    <button type="button" class="select-avatar-button">
-                                        Select Avatar
-                                    </button>
-                                    <button type="button" class="selected-button">
-                                        Selected Avatar
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="img-block">
-                                <img
-                                    src="{{ asset('/images/body/body3.png') }}"
-                                    class="card-img-top"
-                                    alt="Card image cap"
-                                >
-                                <div class="block-button">
-                                    <button type="button" class="select-avatar-button">
-                                        Select Avatar
-                                    </button>
-                                    <button type="button" class="selected-button">
-                                        Selected Avatar
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="img-block">
-                                <img
-                                    src="{{ asset('/images/body/body4.png') }}"
-                                    class="card-img-top"
-                                    alt="Card image cap"
-                                >
-                                <div class="block-button">
-                                    <button type="button" class="select-avatar-button">
-                                        Select Avatar
-                                    </button>
-                                    <button type="button" class="selected-button">
-                                        Selected Avatar
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="my-3">
-                <button type="button" class="btn btn-outline-secondary">Go to lab</button>
-            </div>
-        </form>
-
+        <canvas id="canvas" style="background-color: #282d40"></canvas>
     </div>
 
 @endsection

@@ -17,8 +17,6 @@
     @yield('content')
 </main>
 
-{{--@include('partials.footer')--}}
-
 @include('partials.scripts')
 
 @stack('js')
