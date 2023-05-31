@@ -1,12 +1,16 @@
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
-canvas.width = 1000;
-canvas.height = 500;
+
+var windowWidth = window.innerWidth;
+var windowHeight = window.innerHeight;
+
+canvas.width = windowWidth - 16.0000001;
+canvas.height = windowHeight;
 
 var keys = [];
 var player = {
-    x: 355,
-    y: 225,
+    x: 10,
+    y: 10,
     width: 65,
     height: 64,
     frameX: 0,
@@ -34,6 +38,7 @@ window.addEventListener("keyup", function (e) {
     player.moving = false;
 })
 
+var mathTestsButton = document.getElementById('mathTests');
 function movePlayer() {
     if (keys[38] && player.y > 0) { //top
         player.y -= player.speed;
@@ -56,21 +61,21 @@ function movePlayer() {
         player.moving = true;
     }
 
-    if ((player.x >= 855 && player.x <= 935) && (player.y >= 265 && player.y <= 330)) {
-        $.ajax({
-            url: 'lab/physics',
-            type: 'GET',
-            success: function(response) {
-                $(this).addClass('active');
-                $('#container').html(response);
+    if ((player.x >= 1655 && player.x <= 1790) && (player.y >= 260 && player.y <= 370)) {
+        mathTestsButton.classList.remove('d-none');
+        mathTestsButton.style.left = (1655 + 1790)/2 + 'px';
+        mathTestsButton.style.top = (260 + 370)/2 + 'px';
 
-                // return false;
-            },
-            error: function() {
-                alert('An error occurred while fetching the content.');
-            }
+        // mathTestsButton.addEventListener('keypress', function (event) {
+        //     if (event.key === 'Enter') {
+        //         console.log('asd')
+        //     }
+        // });
+        document.getElementById('mathTestCheck').addEventListener('click', (event) => {
+            console.log(23)
         });
-        return false;
+    } else {
+        mathTestsButton.classList.add('d-none')
     }
 }
 
@@ -97,6 +102,9 @@ function animate() {
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+        ctx.font = "24px serif";
+        var mathTest = 'Math tests';
+        ctx.fillText(mathTest, (canvas.width - 200), 100);
         drawSprite(playerSprite,
             player.width * player.frameX,
             player.height * player.frameY,
@@ -110,4 +118,4 @@ function animate() {
     }
 }
 
-startAnimating(30);
+startAnimating(150);

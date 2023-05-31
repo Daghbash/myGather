@@ -7,7 +7,9 @@
     </div>
 
     <div class="h-100">
-        <canvas id="canvas" style="background-color: #282d40"></canvas>
+        <canvas id="canvas" style="background-color: #d9d9d9; "></canvas>
     </div>
+
+    <script src="{{ asset('js/home.js') }}"></script>
 
 @endsection

@@ -61,7 +61,10 @@ Route::middleware(['auth'])->group(function () {
     })->name('pages.index');
 
     Route::group(['prefix' => '/lab', 'as' => 'lab.'], function () {
-        Route::get('/math', [MathLabController::class, 'index'])->name('math');
+        Route::group(['prefix' => '/math', 'as' => 'math.'], function () {
+            Route::get('/', [MathLabController::class, 'index'])->name('room');
+            Route::get('/checkTest', [MathLabController::class, 'checkTest'])->name('check');
+        });
         Route::get('/physics', [PhysicsLabController::class, 'index'])->name('physics');
         Route::get('/psychology', [PsychologyLabController::class, 'index'])->name('psychology');
         Route::get('/biology', [BiologyLabController::class, 'index'])->name('biology');

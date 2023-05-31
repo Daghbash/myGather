@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+    @include('partials.scripts')
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -16,8 +17,6 @@
 <main id="container" class="">
     @yield('content')
 </main>
-
-@include('partials.scripts')
 
 @stack('js')
 
