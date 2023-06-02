@@ -25,6 +25,11 @@
                     <li class="nav-item mx-3">
                         <button id="geographyLab" class="btn btn-secondary headerButton">GeographyLab</button>
                     </li>
+                    <li class="nav-item mx-3">
+                        <button id="detection" class="btn btn-secondary">
+                            <a href="{{route('detectFaces')}}" class="btn-secondary text-decoration-none">Detection</a>
+                        </button>
+                    </li>
                 </ul>
             </div>
 

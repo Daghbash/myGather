@@ -37,6 +37,7 @@ window.addEventListener("keyup", function (e) {
     delete keys[e.keyCode];
     player.moving = false;
 })
+var loading = false;
 
 var mathTestsButton = document.getElementById('mathTests');
 function movePlayer() {
@@ -61,19 +62,50 @@ function movePlayer() {
         player.moving = true;
     }
 
-    if ((player.x >= 1655 && player.x <= 1790) && (player.y >= 260 && player.y <= 370)) {
+    if (((player.x >= 1655 && player.x <= 1790) && (player.y >= 260 && player.y <= 370))) {
         mathTestsButton.classList.remove('d-none');
         mathTestsButton.style.left = (1655 + 1790)/2 + 'px';
         mathTestsButton.style.top = (260 + 370)/2 + 'px';
 
-        // mathTestsButton.addEventListener('keypress', function (event) {
-        //     if (event.key === 'Enter') {
-        //         console.log('asd')
-        //     }
-        // });
-        document.getElementById('mathTestCheck').addEventListener('click', (event) => {
-            console.log(23)
-        });
+        mathTestsButton.addEventListener("click", function () {
+            if (!loading) {
+                loading = true;
+                $.ajax({
+                    url: 'lab/math/tests',
+                    type: 'GET',
+                    success: function(response) {
+                        $('#mathTestsModal .modal-body').html(response)
+
+                        loading = false;
+                    },
+                    error: function() {
+                        alert('An error occurred while fetching the content.');
+                    }
+                });
+            }
+        })
+        document.getElementById('mathTestCheck').addEventListener("click", function () {
+            if (!loading) {
+                loading = true;
+                var mathCheckModal = document.getElementById('mathCheckModal');
+
+                $.ajax({
+                    url: 'lab/math/checkTest',
+                    type: 'POST',
+                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                    success: function (response) {
+                        mathCheckModal.style.display = 'block';
+                        mathCheckModal.classList.add = 'show';
+                        mathCheckModal.style.opacity = '1';
+
+                        loading = false;
+                    },
+                    error: function () {
+                        alert('An error occurred while fetching the content.');
+                    }
+                });
+            }
+        })
     } else {
         mathTestsButton.classList.add('d-none')
     }

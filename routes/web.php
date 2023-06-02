@@ -3,10 +3,13 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BiologyLabController;
+use App\Http\Controllers\FaceDetectionController;
 use App\Http\Controllers\GeographyLabController;
+use App\Http\Controllers\ImageDetectorController;
 use App\Http\Controllers\MathLabController;
 use App\Http\Controllers\PhysicsLabController;
 use App\Http\Controllers\PsychologyLabController;
+use App\Http\Controllers\SpamController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,11 +66,14 @@ Route::middleware(['auth'])->group(function () {
     Route::group(['prefix' => '/lab', 'as' => 'lab.'], function () {
         Route::group(['prefix' => '/math', 'as' => 'math.'], function () {
             Route::get('/', [MathLabController::class, 'index'])->name('room');
-            Route::get('/checkTest', [MathLabController::class, 'checkTest'])->name('check');
+            Route::get('/tests', [MathLabController::class, 'test'])->name('test');
+            Route::post('/checkTest', [MathLabController::class, 'checkTest'])->name('check');
         });
         Route::get('/physics', [PhysicsLabController::class, 'index'])->name('physics');
         Route::get('/psychology', [PsychologyLabController::class, 'index'])->name('psychology');
         Route::get('/biology', [BiologyLabController::class, 'index'])->name('biology');
         Route::get('/geography', [GeographyLabController::class, 'index'])->name('geography');
     });
+
+    Route::get('/face/detection', [FaceDetectionController::class, 'detectFaces'])->name('detectFaces');
 });

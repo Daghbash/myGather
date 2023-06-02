@@ -13,17 +13,17 @@ $(document).ready(function() {
         let labUrl = labUrls[labId];
         removeClass();
 
-            $.ajax({
-                url: labUrl,
-                type: 'GET',
-                success: function(response) {
-                    $(this).addClass('active');
-                    $('#container').html(response);
-                },
-                error: function() {
-                    alert('An error occurred while fetching the content.');
-                }
-            });
+        $.ajax({
+            url: labUrl,
+            type: 'GET',
+            success: function(response) {
+                $(this).addClass('active');
+                $('#container').html(response);
+            },
+            error: function() {
+                alert('An error occurred while fetching the content.');
+            }
+        });
     });
 })
 
