@@ -69,9 +69,9 @@
 
 // Load models and initialize face-api.js
 Promise.all([
-    faceapi.nets.ssdMobilenetv1.loadFromUri('models'),
-    faceapi.nets.faceRecognitionNet.loadFromUri('models'),
-    faceapi.nets.faceLandmark68Net.loadFromUri('models')
+    faceapi.nets.ssdMobilenetv1.loadFromDisk('node_modules/face-api.js'),
+    faceapi.nets.faceRecognitionNet.loadFromDisk('node_modules/face-api.js'),
+    faceapi.nets.faceLandmark68Net.loadFromDisk('node_modules/face-api.js')
 ]).then(start);
 
 // Start the face recognition script

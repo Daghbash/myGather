@@ -9,8 +9,8 @@ canvas.height = windowHeight;
 
 var keys = [];
 var player = {
-    x: 10,
-    y: 10,
+    x: 1500,
+    y: 60,
     width: 65,
     height: 64,
     frameX: 0,
@@ -84,16 +84,21 @@ function movePlayer() {
                 });
             }
         })
-        document.getElementById('mathTestCheck').addEventListener("click", function () {
+        document.getElementById('mathTestCheck').addEventListener("click", function (e) {
+            e.preventDefault();
             if (!loading) {
                 loading = true;
                 var mathCheckModal = document.getElementById('mathCheckModal');
+                var formData = ($('#math_check_test').serializeArray());
 
+                console.log('formData', formData);
                 $.ajax({
                     url: 'lab/math/checkTest',
                     type: 'POST',
                     headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                    success: function (response) {
+                    data: formData,
+                    success: function (data) {
+                        console.log(456, data, formData);
                         mathCheckModal.style.display = 'block';
                         mathCheckModal.classList.add = 'show';
                         mathCheckModal.style.opacity = '1';

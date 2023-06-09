@@ -1,5 +1,4 @@
 <!-- Modal check -->
-<form action="{{ route('lab.math.check') }}" method="POST">
     <div class="modal fade"
          id="mathCheckModal"
          tabindex="-1"
@@ -16,9 +15,9 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    your test answer
                     {{--                {{ $data }}--}}
                 </div>
             </div>
         </div>
     </div>
-</form>

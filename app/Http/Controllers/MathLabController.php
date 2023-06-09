@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\MathTest;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Request;
 
 class MathLabController extends Controller
 {
@@ -34,8 +34,10 @@ class MathLabController extends Controller
 
     public function checkTest(Request $request): JsonResponse
     {
+//        $mathTest = MathTest::query()->first();
         $data = [
-            'request' => $request,
+            'request'   => $request->all(),
+//            'data'      => $mathTest,
         ];
 
         return response()->json($data);
