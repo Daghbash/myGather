@@ -34,11 +34,20 @@ class MathLabController extends Controller
 
     public function checkTest(Request $request): JsonResponse
     {
-//        $mathTest = MathTest::query()->first();
-        $data = [
-            'request'   => $request->all(),
-//            'data'      => $mathTest,
-        ];
+        $data = [];
+        if ($request->has('testArr')) {
+            $mathTestCount = MathTest::query()
+                ->whereHas('answer', function ($query) use ($request) {
+                    $query->whereIn('answer', $request->input('testArr'));
+                })
+                ->count();
+
+            $data['rightAnswerCount'] = $mathTestCount;
+        } else {
+            $data['rightAnswerCount'] = 0;
+        }
+
+        $data['testsCount'] = MathTest::query()->count();
 
         return response()->json($data);
     }

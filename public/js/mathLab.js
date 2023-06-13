@@ -91,18 +91,20 @@ function movePlayer() {
                 var mathCheckModal = document.getElementById('mathCheckModal');
                 var formData = ($('#math_check_test').serializeArray());
 
-                console.log('formData', formData);
                 $.ajax({
                     url: 'lab/math/checkTest',
                     type: 'POST',
                     headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                     data: formData,
                     success: function (data) {
-                        console.log(456, data, formData);
                         mathCheckModal.style.display = 'block';
-                        mathCheckModal.classList.add = 'show';
                         mathCheckModal.style.opacity = '1';
+                        $('#rightAnswersCount').html(data['rightAnswerCount'] + '/' + data['testsCount']);
 
+                        document.getElementById('closeAnswerModal').addEventListener('click', function () {
+                            mathCheckModal.style.display = 'none';
+                            mathCheckModal.style.opacity = '0';
+                        })
                         loading = false;
                     },
                     error: function () {

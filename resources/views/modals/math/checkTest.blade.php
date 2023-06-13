@@ -11,12 +11,12 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="mathTestCheckModalTitle">{{__('Check your skills')}}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="true" id="closeAnswerModal">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    your test answer
-                    {{--                {{ $data }}--}}
+                    <div>Your test result:</div>
+                    <h1 id="rightAnswersCount"></h1>
                 </div>
             </div>
         </div>
